@@ -14,7 +14,7 @@ const blank = {
 }
 
 function SignUp() {
-    const [input, setInput] = useState({blank});
+    const [input, setInput] = useState([{blank}]);
         console.log({input}, "input results in a cleared state")
         const handleChanges = e => {
             setInput({...input, [e.target.name]: e.target.value});
