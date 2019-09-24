@@ -15,6 +15,7 @@ const [user, setUser] = useState('');
 
     return(
         <div>
+            <h2>{user.name}'s Portfolio</h2>
             <form>
              <button>Log Out</button>          
              <button>Location</button>
