@@ -1,7 +1,18 @@
 import React, { useState } from "react";
 
+const blank = {
+    eventName: "",
+    image: "",
+    address: "",
+    city: "",
+    state: "",
+    postal: "",
+    eventDescription: "",
+    vendor: ""
+}
+
 function CreateEvent () {
-    const [input, setInput] = useState("");
+    const [input, setInput] = useState(blank);
     console.log({input}, "input results in a cleared state")
     const [vendor, setVendor] = useState([])
     const handleChanges = e => {
@@ -16,7 +27,7 @@ function CreateEvent () {
         e.preventDefault();
         // Put a props reference here to set useState to input for parent component
         // console.log({input});
-        setInput({})
+        setInput(blank)
     }
     const addVendor = e => {
         e.preventDefault();

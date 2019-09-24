@@ -1,20 +1,7 @@
 import React, { useState } from "react";
 
-const blank = {
-    username: "",
-    password: "",
-    address: "",
-    city: "",
-    state: "",
-    postal: "",
-    firstname: "",
-    lastName: "",
-    email: "",
-    telephone: ""    
-}
-
 function SignUp() {
-    const [input, setInput] = useState([{blank}]);
+    const [input, setInput] = useState("");
         console.log({input}, "input results in a cleared state")
         const handleChanges = e => {
             setInput({...input, [e.target.name]: e.target.value});
@@ -24,7 +11,20 @@ function SignUp() {
             e.preventDefault();
             // Put a props reference here to set useState to input for parent component
             console.log({input});
-            setInput({blank})
+            setInput(
+                {
+                    username: "",
+                    password: "",
+                    address: "",
+                    city: "",
+                    state: "",
+                    postal: "",
+                    firstname: "",
+                    lastName: "",
+                    email: "",
+                    telephone: ""    
+                }
+            )
         }
         return(
                 <form onSubmit={submitForm}>
