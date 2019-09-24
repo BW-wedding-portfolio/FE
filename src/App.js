@@ -8,7 +8,7 @@ import CreateEvent from "./components/CreateEvent"
 function App() {
   return (
     <div className="App">
-      <SignIn/>
+      {/* <SignIn/> */}
       <Welcome/>
       <SignUp />
       <CreateEvent />
