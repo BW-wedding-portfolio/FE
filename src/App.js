@@ -4,6 +4,7 @@ import SignIn from './components/SignIn';
 import Welcome from './components/Welcome';
 import SignUp from "./components/SignUp"
 import CreateEvent from "./components/CreateEvent"
+import GuestPortfolio from "./components/GuestPortfolio"
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Welcome/>
       <SignUp />
       <CreateEvent />
+      <GuestPortfolio />
     </div>
   );
 }
