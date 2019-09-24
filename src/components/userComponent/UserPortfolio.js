@@ -9,6 +9,10 @@ const [user, setUser] = useState('');
 
     };
 
+    const deleteUser = function () {
+
+    }
+
     return(
         <div>
             <form>
@@ -17,7 +21,7 @@ const [user, setUser] = useState('');
              <button>Contact Info</button>   
             </form>
             <CreateEvent/>
-            <UserCard onClick={editUser}
+            <UserCard onClick={editUser} onClick={deleteUser}
             image = {user.image}
             location = {user.location}
             description = {user.description}
