@@ -7,7 +7,7 @@ export default function Welcome () {
     return (
       
       <div>
-      <img src={logo} />
+      <img className="logoWelcome" src={logo} />
         <form className="welcomeForm">
           
 
