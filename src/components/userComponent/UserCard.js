@@ -15,7 +15,7 @@ export default function UserCard (props) {
                 <li>{props.vendor}</li>
             </ul>       
         </div>
-        <button>Edit</button>
+        <button onClick ={props.onClick}>Edit</button>
         <button>Delete</button>
         </>
     )

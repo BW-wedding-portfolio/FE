@@ -3,6 +3,7 @@ import UserCard from './UserCard';
 import CreateEvent from '../CreateEvent';
 
 export default function UserPortfolio () {
+const [user, setUser] = useState('');
 
     const editUser = function () {
 
@@ -16,7 +17,7 @@ export default function UserPortfolio () {
              <button>Contact Info</button>   
             </form>
             <CreateEvent/>
-            <UserCard  
+            <UserCard onClick={editUser}
             image = {user.image}
             location = {user.location}
             description = {user.description}
@@ -27,7 +28,3 @@ export default function UserPortfolio () {
     )
 }
 
-ximage = {ch.image}
-xname = {ch.name}
-xspecies = {ch.species}
-xgender ={ch.gender}
