@@ -16,8 +16,8 @@ function App() {
       {/* <SignIn/> */}
       {/* <Welcome/> */}
       {/* <SignUp /> */}
-      <CreateEvent />
-      <GuestPortfolio />
+      {/* <CreateEvent /> */}
+      {/* <GuestPortfolio /> */}
     </div>
   );
 }
