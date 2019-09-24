@@ -22,13 +22,16 @@ const [user, setUser] = useState('');
              <button>Contact Info</button>   
             </form>
             <CreateEvent/>
-            <UserCard onClick={editUser} onClick={deleteUser}
-            image = {user.image}
-            location = {user.location}
-            description = {user.description}
-            theme = {user.theme}
-            vendor = {user.vendor}
+            {user.map(e => (
+                <UserCard onClick={deleteUser} //can u take out editUser 
+                    image = {user.image}
+                    location = {user.location}
+                    description = {user.description}
+                    theme = {user.theme}
+                    vendor = {user.vendor}
             />
+            ))
+            
         </div>
     )
 }
