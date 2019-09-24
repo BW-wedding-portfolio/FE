@@ -1,14 +1,22 @@
 import React from 'react';
 import {  Link } from "react-router-dom";
+import logo  from "../images/logo.png"
 
 export default function Welcome () {
 
     return (
-        <form>
-          <Link to="/signin" ><button>Sign In</button></Link>
-          <button>Guest</button>
-          <Link to="/signup"><button>Sign Up</button></Link>
+      
+      <div>
+      <img className="logoWelcome" src={logo} />
+        <form className="welcomeForm">
+          
+
+          <Link className="welcomeButton" to="/signin" >Sign In</Link>
+          
+          <Link className="welcomeButton" to="/signup">Sign Up</Link>
+          <a className="welcomeButton" href="">Guest</a>
         </form>
+        </div>
 
     )
 }
