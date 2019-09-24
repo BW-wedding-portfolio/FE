@@ -22,7 +22,7 @@ export const registerUser = (user,history) => {
                         dispatch({type: GET_USER_SUCCESS, payload: res.data})
                         history.push("/home")
                   }).catch(error => {
-                        dispatch({type: GET_USER_FAILURE, payload: error.data})
+                        dispatch({type: GET_USER_FAILURE, payload: error})
                   })
       }
 }
@@ -35,7 +35,8 @@ export const logIn = (user,history) => {
                         dispatch({type: LOG_USER_SUCCESS, payload: res.data})
                         history.push("/portfolio:id")
                   }).catch(error => {
-                        dispatch({type: LOG_USER_FAILURE, payload: error.data})
+                        console.log(error.message)
+                        dispatch({type: LOG_USER_FAILURE, payload: error})
                   })
       }
 }

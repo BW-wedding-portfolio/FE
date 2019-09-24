@@ -13,7 +13,7 @@ export const loginReducer=(state=initialState, action) => {
               return {
                 ...state,
                 isLogging: true,
-                error: ""
+                error: null
               };
             case LOG_USER_SUCCESS:
                   console.log(action.payload)

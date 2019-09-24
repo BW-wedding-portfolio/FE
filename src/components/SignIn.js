@@ -18,7 +18,7 @@ function SignIn(props) {
     e.preventDefault();
     props.logIn(userInfo);
     // props.error = ""
-    setUserInfo({ infoSignIn });
+    setUserInfo( infoSignIn );
   };
   
  
@@ -30,7 +30,8 @@ function SignIn(props) {
     
       {props.isLogging && <div>Loading</div>}
         
-        {props.error !== ""  ? window.alert("error") : null}
+        
+        
         
         {/* {props.error = ""} */}
         
@@ -51,11 +52,14 @@ function SignIn(props) {
           value={userInfo.password}
         />
         <button type="submit">Sign in</button>
+        
       </form>
+      
 
       <Link to="/">
         <button>Back</button>
       </Link>
+      {props.error &&  <div>{props.error.message}</div> }
     </>
   );
 }

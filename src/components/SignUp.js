@@ -48,7 +48,7 @@ function SignUp(props) {
         return(
             <>
             {props.isLogging && <div>Loading</div>}
-            {props.error !== ""  ? window.alert("error") : null}
+          
                 <form onSubmit={submitForm}>
                     <input type="text" name="username" onChange={handleChanges} placeholder="Enter Username" value={input.username}/>   
                     <input type="password" name="password" onChange={handleChanges} placeholder="Enter Password" value={input.password} />   
@@ -68,7 +68,7 @@ function SignUp(props) {
                 </form>
                  <Link to="/" ><button>Back</button></Link>
                  
-                 
+                 {props.error &&  <div>{props.error.message}</div> }
                  </>
         )
 
