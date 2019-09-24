@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GuestCard from "./GuestCard";
 
-const cities = [{name: "CLEVELAND", specs: [1,2,3,4,5]}, {name: "boston",  specs: [1,2,3,4,5]}]
+const cities = [{name: "CLEVELAND", specs: [1,2,3,4,5]}, {name: "CLEVELAND", specs: [5,4,3,2,1]}, {name: "CLEVELAND", specs: [3,2,1,5,4]}, {name: "CLEVELAND", specs: [4,5,1,3,2]}, {name: "CLEVELAND", specs: [2,5,3,1,2]}, {name: "CLEVELAND", specs: [1,2,3,4,5]}, {name: "CLEVELAND", specs: [5,4,3,2,1]}, {name: "CLEVELAND", specs: [3,2,1,5,4]}, {name: "CLEVELAND", specs: [4,5,1,3,2]}, {name: "CLEVELAND", specs: [2,5,3,1,2]}, {name: "CLEVELAND", specs: [2,5,3,1,2]}, {name: "boston",  specs: [1,2,3,4,5]}]
 
 function GuestPortfolio () {
     const [query, setQuery] = useState();
@@ -9,7 +9,7 @@ function GuestPortfolio () {
     
     useEffect(() => {
         const transform = cities.filter(e =>
-            e.name.toLowerCase().includes(query.toLowerCase())
+            e.name.toLowerCase().includes(query)
             );
             setQueryResults(transform);
     }, [query]);
@@ -34,11 +34,11 @@ function GuestPortfolio () {
                 />
              </form>
              <button>Sign Up</button>
-             <>
+             <div className="card-container">
                  {queryResults.map(e => (
                      <GuestCard {...e}/>
                  ))}
-             </>
+             </div>
          </div>
     )
 }
