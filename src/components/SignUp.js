@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import {registerUser} from '../actions'
+import {  Link } from "react-router-dom";
 
-function SignUp() {
+
+function SignUp(props) {
     const [input, setInput] = useState("");
         console.log({input}, "input results in a cleared state")
         const handleChanges = e => {
@@ -9,11 +13,26 @@ function SignUp() {
         }
         const submitForm = e => {
             e.preventDefault();
+            props.registerUser(input)
+            setInput({
+                sername: "",
+                password: "",
+                address: "",
+                city: "",
+                state: "",
+                postal: "",
+                firstname: "",
+                lastName: "",
+                email: "",
+                telephone: ""   ,
+            });
+            
+            
             // Put a props reference here to set useState to input for parent component
             console.log({input});
             setInput(
                 {
-                    username: "",
+                    sername: "",
                     password: "",
                     address: "",
                     city: "",
@@ -27,6 +46,9 @@ function SignUp() {
             )
         }
         return(
+            <>
+            {props.isLogging && <div>Loading</div>}
+            {props.error !== ""  ? window.alert("error") : null}
                 <form onSubmit={submitForm}>
                     <input type="text" name="username" onChange={handleChanges} placeholder="Enter Username" value={input.username}/>   
                     <input type="password" name="password" onChange={handleChanges} placeholder="Enter Password" value={input.password} />   
@@ -44,8 +66,20 @@ function SignUp() {
                     </div>
                     <button>Submit</button>    
                 </form>
+                 <Link to="/" ><button>Back</button></Link>
+                 
+                 
+                 </>
         )
 
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+    return {
+      user: state.registerReducer.user,
+      isRegistering: state.registerReducer.isRegistering,
+      error: state.registerReducer.error
+
+    };
+  };
+export default connect(mapStateToProps, {registerUser})(SignUp);

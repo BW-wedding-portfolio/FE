@@ -1,5 +1,6 @@
-
+ import {LOG_USER_START,LOG_USER_SUCCESS,LOG_USER_FAILURE} from '../actions'
 const initialState = {
+  // password: username: 
       user: [],
       isLogging: false,
       error:"",
@@ -12,7 +13,7 @@ export const loginReducer=(state=initialState, action) => {
               return {
                 ...state,
                 isLogging: true,
-                error: null
+                error: ""
               };
             case LOG_USER_SUCCESS:
                   console.log(action.payload)
