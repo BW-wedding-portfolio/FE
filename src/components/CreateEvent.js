@@ -1,18 +1,7 @@
 import React, { useState } from "react";
 
-const blank = {
-    eventName: "",
-    image: "",
-    address: "",
-    city: "",
-    state: "",
-    postal: "",
-    eventDescription: "",
-    vendor: ""
-}
-
 function CreateEvent () {
-    const [input, setInput] = useState(blank);
+    const [input, setInput] = useState("");
     console.log({input}, "input results in a cleared state")
     const [vendor, setVendor] = useState([])
     const handleChanges = e => {
@@ -25,16 +14,34 @@ function CreateEvent () {
     }
     const submitForm = e => {
         e.preventDefault();
+        setVendor([]);
         // Put a props reference here to set useState to input for parent component
         // console.log({input});
-        setInput(blank)
+        setInput(
+            {
+                eventName: "",
+                image: "",
+                address: "",
+                city: "",
+                state: "",
+                postal: "",
+                eventDescription: "",
+                vendor: ""
+            }
+        )
     }
     const addVendor = e => {
         e.preventDefault();
         // Put a props reference here to set useState to input for parent component
         console.log(e);
         setVendor([...vendor, input.vendor])
+        setInput({vendor:""})
     }
+    const deleteVendor = e => {
+        e.preventDefault();
+        setVendor(vendor.slice(0, vendor.length-1))
+    }
+
     return (
         <>
             <form onSubmit={submitForm}>
@@ -49,9 +56,9 @@ function CreateEvent () {
                 <div className="description">
                     <textarea cols="100" name="eventDescription" onChange={handleChanges} placeholder="Enter Event Description" value={input.eventDescription} />
                 </div>
-                <form onSubmit={addVendor}>
+                <form>
                     <input type="text" name="vendor" onChange={handleChangesVendor} placeholder="Enter Vendor" value={input.vendor} />
-                    <button>Add Vendor</button>
+                    <button onClick={addVendor}>Add Vendor</button><button onClick={deleteVendor}>Delete</button>
                     {vendor.map(e => (<p>{e}</p>))}
                 </form>
                 <button>Submit</button>

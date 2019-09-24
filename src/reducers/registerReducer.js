@@ -1,3 +1,4 @@
+import {GET_USER_START,GET_USER_SUCCESS,GET_USER_FAILURE} from '../actions'
 const initialState = {
       user: [],
       isRegistering: false,

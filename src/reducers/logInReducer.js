@@ -1,5 +1,6 @@
-
+ import {LOG_USER_START,LOG_USER_SUCCESS,LOG_USER_FAILURE} from '../actions'
 const initialState = {
+  // password: username: 
       user: [],
       isLogging: false,
       error:"",

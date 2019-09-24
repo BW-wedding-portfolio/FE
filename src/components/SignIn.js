@@ -1,26 +1,77 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { logIn } from "../actions";
+import { Link } from "react-router-dom";
 
-export default function SignIn () {
-    const[userInfo, setUserInfo] = useState(null);
-    const infoSignIn = {
-        username: "",
-        password: ""
-    }
+function SignIn(props) {
+  const [userInfo, setUserInfo] = useState({ username: "", password: "" });
+  const infoSignIn = {
+    username: "",
+    password: ""
+  };
 
-    const handleChange = e => {
-        setUserInfo({...userInfo, [e.target.name]: e.target.value})
-    }
+  const handleChange = e => {
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = e => {
-        setUserInfo({infoSignIn}) 
-    }
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.logIn(userInfo);
+    // props.error = ""
+    setUserInfo( infoSignIn );
+  };
+  
+ 
 
-    return (
-    <form  onSubmit ={handleSubmit}>
-        <input type='text' name="username" placeholder="Enter username"  onChange ={handleChange} value={userInfo.username}/>
-        <input type='password' name="password" placeholder="password" onChange ={handleChange} value={userInfo.password} />
-        <button type='submit'>Sign in</button>
-    </form>
-    )
 
+  return (
+    <>
+    {console.log("hello" ,props)}
+    
+      {props.isLogging && <div>Loading</div>}
+        
+        
+        
+        
+        {/* {props.error = ""} */}
+        
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Enter username"
+          onChange={handleChange}
+          value={userInfo.username}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          onChange={handleChange}
+          value={userInfo.password}
+        />
+        <button type="submit">Sign in</button>
+        
+      </form>
+      
+
+      <Link to="/">
+        <button>Back</button>
+      </Link>
+      {props.error &&  <div>{props.error.message}</div> }
+    </>
+  );
 }
+const mapStateToProps = state => {
+    console.log(state)
+  return {
+   isLogging: state.loginReducer.isLogging,
+   error: state.loginReducer.error,
+   user: state.loginReducer.user
+  };
+};
+export default connect(
+  mapStateToProps,
+  { logIn }
+)(SignIn);
