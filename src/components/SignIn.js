@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 
-const infoSignIn = {
-    username: "",
-    password: ""
-}
-
-
-
 export default function SignIn () {
-    const[userInfo, setUserInfo] = useState({infoSignIn});
+    const[userInfo, setUserInfo] = useState(null);
+    const infoSignIn = {
+        username: "",
+        password: ""
+    }
 
     const handleChange = e => {
         setUserInfo({...userInfo, [e.target.name]: e.target.value})
