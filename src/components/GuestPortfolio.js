@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import GuestCard from "./GuestCard";
 
 function GuestPortfolio () {
     const [query, setQuery] = useState("");
