@@ -4,12 +4,12 @@ import GuestCard from "./GuestCard";
 const cities = [{name: "CLEVELAND", specs: [1,2,3,4,5]}, {name: "boston",  specs: [1,2,3,4,5]}]
 
 function GuestPortfolio () {
-    const [query, setQuery] = useState();
+    const [query, setQuery] = useState("");
     const [queryResults, setQueryResults] = useState([]);
-
+    
     useEffect(() => {
         const transform = cities.filter(e =>
-            e.name.toLowerCase().includes(query)
+            e.name.toLowerCase().includes(query.toLowerCase())
             );
             setQueryResults(transform);
     }, [query]);
@@ -17,7 +17,7 @@ function GuestPortfolio () {
     const handleChange = e => {
         setQuery(e.target.value);
         if (e.target.value===""){
-            setQuery()
+            setQuery("")
         }
     }
 
