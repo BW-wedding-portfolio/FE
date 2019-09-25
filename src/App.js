@@ -24,8 +24,10 @@ function App(props) {
     <div className="App">
       
       <Route exact path="/" component={Welcome} />
+
       <Route path="/signin" {...props} component={SignIn} />
       <Route path="/signup" {...props} component={SignUp} />
+
 
       <Route path="/guest" component={GuestPortfolio} />
       <ProtectedRoute path="/userportfolio" component={UserPortfolio} />
