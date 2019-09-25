@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       
-      {/* <Route exact path="/" component={Welcome} />
+      <Route exact path="/" component={Welcome} />
       <Route path="/signin" component={SignIn} />
 
       <Route path="/signup" component={SignUp} />
