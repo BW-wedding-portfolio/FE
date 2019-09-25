@@ -21,8 +21,9 @@ function GuestPortfolio () {
         }
     }
 
+  
     return(
-         <div>
+         <div className="guestPortfolio">
              <form>
                  <input
                     type="text"

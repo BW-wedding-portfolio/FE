@@ -4,6 +4,7 @@ import { logIn } from "../actions";
 import { Link } from "react-router-dom";
 
 function SignIn(props) {
+    console.log(props, "sign in")
   const [userInfo, setUserInfo] = useState({ username: "", password: "" });
   const infoSignIn = {
     username: "",
@@ -14,27 +15,20 @@ function SignIn(props) {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
+      console.log(props)
     e.preventDefault();
-    props.logIn(userInfo);
-    // props.error = ""
-    setUserInfo( infoSignIn );
+    props.logIn(userInfo, props.history)
+    
   };
-  
- 
-
 
   return (
     <>
-    {console.log("hello" ,props)}
-    
+      {console.log("hello", props)}
+
       {props.isLogging && <div>Loading</div>}
-        
-        
-        
-        
-        {/* {props.error = ""} */}
-        
+
+      {/* {props.error = ""} */}
 
       <form onSubmit={handleSubmit}>
         <input
@@ -52,23 +46,21 @@ function SignIn(props) {
           value={userInfo.password}
         />
         <button type="submit">Sign in</button>
-        
       </form>
-      
 
       <Link to="/">
         <button>Back</button>
       </Link>
-      {props.error &&  <div>{props.error.message}</div> }
+      {props.error && <div>{props.error.message}</div>}
     </>
   );
 }
 const mapStateToProps = state => {
-    console.log(state)
+  console.log(state);
   return {
-   isLogging: state.loginReducer.isLogging,
-   error: state.loginReducer.error,
-   user: state.loginReducer.user
+    isLogging: state.loginReducer.isLogging,
+    error: state.loginReducer.error,
+    user: state.loginReducer.user
   };
 };
 export default connect(
