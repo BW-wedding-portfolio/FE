@@ -8,6 +8,7 @@ import UserPortfolio from './components/userComponent/UserPortfolio';
 import GuestPortfolio from "./components/GuestPortfolio"
 import {  Route } from "react-router-dom";
 
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,19 @@ function App() {
       <Route path="/signin" component={SignIn} />
 
       <Route path="/signup" component={SignUp} />
+
+      <Route path="/guest" component={GuestPortfolio} />
+
+      {/* <SignIn/> */}
+      {/* <Welcome/> */}
+      {/* <SignUp /> */}
+
+      {/* <CreateEvent /> */}
+      {/* <GuestPortfolio /> */}
+
+
+
+
       <Route path="/createevent" component={CreateEvent} />
       <Route path="/userportfolio" component={UserPortfolio} />
 
@@ -24,6 +38,7 @@ function App() {
       {/* <SignUp /> */}
       {/* <CreateEvent /> */}
       {/* <GuestPortfolio /> */}
+
     </div>
   );
 }

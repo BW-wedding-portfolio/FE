@@ -122,14 +122,25 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+body{
+  background-image: linear-gradient(to bottom right, #F6F6F6, #D4D7DD);
+   height: 120vh;
+  position: cover;
+}
+/* h1, h2, h3 ,h4 , h5, h6 {
 
-
-
+}
+p{
+  
+} */
 .App {
   text-align: center;
-  background-image: linear-gradient(to bottom right, #F6F6F6, #D4D7DD);
-  height: 100vh;
+  
+  
 }
+/* html {
+ 
+} */
 
 .App-logo {
   height: 40vmin;
