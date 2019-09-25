@@ -14,13 +14,16 @@ function App() {
       
       {/* <Route exact path="/" component={Welcome} />
       <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} /> */}
-      {/* <SignIn/> */}
+
+      <Route path="/signup" component={SignUp} />
+      <Route path="/createevent" component={CreateEvent} />
+      <Route path="/userportfolio" component={UserPortfolio} />
+
+
       {/* <Welcome/> */}
       {/* <SignUp /> */}
-
       {/* <CreateEvent /> */}
-      <GuestPortfolio />
+      {/* <GuestPortfolio /> */}
     </div>
   );
 }
