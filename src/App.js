@@ -6,19 +6,30 @@ import SignUp from "./components/SignUp"
 import CreateEvent from "./components/CreateEvent"
 import UserPortfolio from './components/userComponent/UserPortfolio';
 import GuestPortfolio from "./components/GuestPortfolio"
-import {  Route } from "react-router-dom";
+import {  Route, Redirect } from "react-router-dom";
 
+const ProtectedRoute = ({component: Component, ...rest}) => {
+  return <Route {...rest} render={props => {
+    if(localStorage.getItem('token')){
+      return <Component {...props} />
+    }
+    else{
+      return <Redirect to="/"/>
+    }
+  }} />
+}
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       
       <Route exact path="/" component={Welcome} />
-      <Route path="/signin" component={SignIn} />
-
-      <Route path="/signup" component={SignUp} />
+      <Route path="/signin" {...props} component={SignIn} />
+      <Route path="/signup" {...props} component={SignUp} />
 
       <Route path="/guest" component={GuestPortfolio} />
+      <ProtectedRoute path="/userportfolio" component={UserPortfolio} />
+      <ProtectedRoute path="/createevent" component={CreateEvent} />
 
       {/* <SignIn/> */}
       {/* <Welcome/> */}
@@ -30,8 +41,8 @@ function App() {
 
 
 
-      <Route path="/createevent" component={CreateEvent} />
-      <Route path="/userportfolio" component={UserPortfolio} />
+      
+      
 
 
       {/* <Welcome/> */}

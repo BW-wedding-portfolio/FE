@@ -17,6 +17,8 @@ function GuestCard(props) {
                 <li>{e}</li>
             ))}
           </ul>
+
+
       </div>
     );
   }

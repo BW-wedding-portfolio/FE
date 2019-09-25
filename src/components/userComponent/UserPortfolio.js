@@ -1,62 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserCard from './UserCard';
+import axiosWithAuth from '../../utils/axiosWithAuth'
 import CreateEvent from '../CreateEvent';
 
 
 export default function UserPortfolio () {
-const data = [
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        },
 
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        },
 
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        
-        },
+       
+      
 
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        },
-
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        }
-        ]
 
 
 const [user, setUser] = useState(data);
 const [userInfo, setUserInfo] = useState([]);
-
 
     const editUser = function () {
 
@@ -66,7 +24,15 @@ const [userInfo, setUserInfo] = useState([]);
 
     }
 
-
+    // useEffect(() => {
+    //     axiosWithAuth()
+    //       .get(`https://wedding-portfolio-bw.herokuapp.com/${}/events`)
+    //       .then(res => {
+    //         setUser(res.data)
+    //       })
+    //       .catch(err => console.log(err.respone));
+    //   }, []);
+    
     return(
         <div>
         <div>
