@@ -123,9 +123,10 @@ table {
   border-spacing: 0;
 }
 body{
+  
   background-image: linear-gradient(to bottom right, #F6F6F6, #D4D7DD);
-   height: 120vh;
-  position: cover;
+  min-height: 100%;
+   
 }
 /* h1, h2, h3 ,h4 , h5, h6 {
 
@@ -138,9 +139,10 @@ p{
   
   
 }
-/* html {
- 
-} */
+html {
+  background-image: linear-gradient(to bottom right, #F6F6F6, #D4D7DD);
+  height: 100%;
+}
 
 .App-logo {
   height: 40vmin;
@@ -148,7 +150,7 @@ p{
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,8 +167,16 @@ a{
   color : #420000;
 }
 .welcomeForm{
-  padding-top: 10%;;
+  padding-top: 10%;
+  height: 100%;
 }
+.guestPortfolio{
+  height: 100%;
+  
+}
+/* .card-container{
+  height: 100%;
+} */
 
 
 .welcomeButton:nth-child(1){
