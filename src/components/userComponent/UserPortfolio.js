@@ -1,9 +1,61 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import UserCard from './UserCard';
 import CreateEvent from '../CreateEvent';
 
+
 export default function UserPortfolio () {
-const [user, setUser] = useState('');
+const data = [
+        {
+            name: 'Devin',
+            image: 'https://i.imgur.com/uH7CF.jpg',
+            location: 'Toronto',
+            description: 'DLDLDLDLDLDL LDDLDL',
+            theme: 'money',
+            vendor: ['1', '2', '3', '4', '5']
+        },
+
+        {
+            name: 'Devin',
+            image: 'https://i.imgur.com/uH7CF.jpg',
+            location: 'Toronto',
+            description: 'DLDLDLDLDLDL LDDLDL',
+            theme: 'money',
+            vendor: ['1', '2', '3', '4', '5']
+        },
+
+        {
+            name: 'Devin',
+            image: 'https://i.imgur.com/uH7CF.jpg',
+            location: 'Toronto',
+            description: 'DLDLDLDLDLDL LDDLDL',
+            theme: 'money',
+            vendor: ['1', '2', '3', '4', '5']
+        
+        },
+
+        {
+            name: 'Devin',
+            image: 'https://i.imgur.com/uH7CF.jpg',
+            location: 'Toronto',
+            description: 'DLDLDLDLDLDL LDDLDL',
+            theme: 'money',
+            vendor: ['1', '2', '3', '4', '5']
+        },
+
+        {
+            name: 'Devin',
+            image: 'https://i.imgur.com/uH7CF.jpg',
+            location: 'Toronto',
+            description: 'DLDLDLDLDLDL LDDLDL',
+            theme: 'money',
+            vendor: ['1', '2', '3', '4', '5']
+        }
+        ]
+
+
+const [user, setUser] = useState(data);
+
 
     const editUser = function () {
 
@@ -15,20 +67,21 @@ const [user, setUser] = useState('');
 
     return(
         <div>
-            <h2>{user.name}'s Portfolio</h2>
+            <h2> User Portfolio</h2>
             <form>
              <button>Log Out</button>          
              <button>Location</button>
              <button>Contact Info</button>   
+            <Link to='/createevent'><button>Create Event</button></Link>
             </form>
-            <CreateEvent/>
+
             {user.map(e => (
-                <UserCard onClick={deleteUser} 
-                    image = {user.image}
-                    location = {user.location}
-                    description = {user.description}
-                    theme = {user.theme}
-                    vendor = {user.vendor}
+                <UserCard 
+                    image = {e.image}
+                    location = {e.location}
+                    description = {e.description}
+                    theme = {e.theme}
+                    vendor = {e.vendor}
                     />
             ))
             }

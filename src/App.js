@@ -13,9 +13,11 @@ function App() {
   return (
     <div className="App">
       
-      <Route exact path="/" component={Welcome} />
+      {/* <Route exact path="/" component={Welcome} />
       <Route path="/signin" component={SignIn} />
+
       <Route path="/signup" component={SignUp} />
+
       <Route path="/guest" component={GuestPortfolio} />
 
       {/* <SignIn/> */}
@@ -26,6 +28,16 @@ function App() {
       {/* <GuestPortfolio /> */}
 
 
+
+
+      <Route path="/createevent" component={CreateEvent} />
+      <Route path="/userportfolio" component={UserPortfolio} />
+
+
+      {/* <Welcome/> */}
+      {/* <SignUp /> */}
+      {/* <CreateEvent /> */}
+      {/* <GuestPortfolio /> */}
 
     </div>
   );
