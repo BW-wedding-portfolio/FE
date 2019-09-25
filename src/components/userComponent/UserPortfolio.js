@@ -8,8 +8,13 @@ import CreateEvent from '../CreateEvent';
 export default function UserPortfolio () {
 
 
-const [user, setUser] = useState([]);
+       
+      
 
+
+
+const [user, setUser] = useState(data);
+const [userInfo, setUserInfo] = useState([]);
 
     const editUser = function () {
 
@@ -28,10 +33,17 @@ const [user, setUser] = useState([]);
     //       .catch(err => console.log(err.respone));
     //   }, []);
     
-
     return(
         <div>
-            <h2> User Portfolio</h2>
+        <div>
+            
+            <h2>{userInfo.name}'s Portfolio</h2> 
+            <h3>Location {userInfo.city}</h3>
+            <h3>Contact Info</h3> 
+            <h3>Phone Number {userInfo.phonenumber}</h3>
+            <h3>Email {userInfo.email}</h3>
+        </div>
+            <h2>User Portfolio</h2>
             <form>
              <button>Log Out</button>          
              <button>Location</button>

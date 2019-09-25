@@ -25,7 +25,6 @@ function App(props) {
       
       <Route exact path="/" component={Welcome} />
       <Route path="/signin" {...props} component={SignIn} />
-
       <Route path="/signup" {...props} component={SignUp} />
 
       <Route path="/guest" component={GuestPortfolio} />
