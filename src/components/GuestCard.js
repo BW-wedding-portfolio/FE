@@ -7,11 +7,11 @@ function GuestCard(props) {
           <p>Location: {props.name}</p>
           <p>Description: {props.name}</p>
           <p>Theme: {props.name}</p>
-          <ul>
+
             {props.specs.map(e => (
                 <li>{e}</li>
             ))}
-          </ul>
+
       </div>
     );
   }
