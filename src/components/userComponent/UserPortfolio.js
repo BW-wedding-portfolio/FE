@@ -1,61 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserCard from './UserCard';
+import axiosWithAuth from '../../utils/axiosWithAuth'
 import CreateEvent from '../CreateEvent';
 
 
 export default function UserPortfolio () {
-const data = [
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        },
 
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        },
 
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        
-        },
+       
+      
 
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        },
-
-        {
-            name: 'Devin',
-            image: 'https://i.imgur.com/uH7CF.jpg',
-            location: 'Toronto',
-            description: 'DLDLDLDLDLDL LDDLDL',
-            theme: 'money',
-            vendor: ['1', '2', '3', '4', '5']
-        }
-        ]
 
 
 const [user, setUser] = useState(data);
-
+const [userInfo, setUserInfo] = useState([]);
 
     const editUser = function () {
 
@@ -65,9 +24,26 @@ const [user, setUser] = useState(data);
 
     }
 
+    // useEffect(() => {
+    //     axiosWithAuth()
+    //       .get(`https://wedding-portfolio-bw.herokuapp.com/${}/events`)
+    //       .then(res => {
+    //         setUser(res.data)
+    //       })
+    //       .catch(err => console.log(err.respone));
+    //   }, []);
+    
     return(
         <div>
-            <h2> User Portfolio</h2>
+        <div>
+            
+            <h2>{userInfo.name}'s Portfolio</h2> 
+            <h3>Location {userInfo.city}</h3>
+            <h3>Contact Info</h3> 
+            <h3>Phone Number {userInfo.phonenumber}</h3>
+            <h3>Email {userInfo.email}</h3>
+        </div>
+            <h2>User Portfolio</h2>
             <form>
              <button>Log Out</button>          
              <button>Location</button>

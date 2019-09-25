@@ -12,7 +12,9 @@ export default function UserCard (props) {
             <p>Description: {props.description}</p>   
             <p>Theme: {props.theme}</p>    
             <ul>Vendors:
-                <li>{props.vendor}</li>
+                {props.vendor.map(e =>(
+                    <li>{e}</li>
+                ))}
             </ul>       
         </div>
         <button onClick ={props.onClick}>Edit</button>
