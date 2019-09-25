@@ -14,7 +14,7 @@ export default function Welcome () {
           <Link className="welcomeButton" to="/signin" >Sign In</Link>
           
           <Link className="welcomeButton" to="/signup">Sign Up</Link>
-          <a className="welcomeButton" href="">Guest</a>
+          <Link className="welcomeButton" to="/guest">Guest</Link>
         </form>
         </div>
 
