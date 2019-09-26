@@ -15,20 +15,18 @@ function SignUp(props) {
   };
   const submitForm = e => {
     e.preventDefault();
-    props.registerUser(input)
-   
-        .then((res) => {
-        if(res){
-            console.log(res, "im res")
-            props.history.push('/')
+    props
+      .registerUser(input)
+
+      .then(res => {
+        if (res) {
+          console.log(res, "im res");
+          props.history.push("/");
+        } else {
+          console.log("else fired");
+          window.alert("sign up failed");
         }
-        else{
-            console.log("else fired")
-            window.alert("sign up failed")
-        }
-        
-    })
-    
+      });
 
     setInput({
       username: "",
