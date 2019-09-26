@@ -20,6 +20,7 @@ function UserPortfolio() {
       .catch(err => console.log(err));
   };
 
+
   // const Edit = event_id => {
   //   const id = localStorage.getItem("id");
   //   axios
@@ -34,6 +35,7 @@ function UserPortfolio() {
   //     .catch(err => console.log(err));
   // };
   const [info, setInfo] = useState("");
+
 
   useEffect(() => {
     axiosWithAuth()
@@ -143,30 +145,34 @@ function UserPortfolio() {
   //   },[] );
   console.log("ima user", user);
   return (
-    <div>
-      <h2> {info.first_name}</h2>
-      <h2>{info.location}</h2>
-      <h2>{info.email}</h2>
-      <form>
-        <button>Log Out</button>
 
+    <div className="guestPortfolio">
+      <h2> User Portfolio</h2>
+      <form>
+        <button onClick={() => localStorage.clear}>Log Out</button>
+        <button>Location</button>
+        <button>Contact Info</button>
         <Link to="/createevent">
           <button>Create Event</button>
         </Link>
-      </form>
 
-      {user.map(e => (
-        <UserCard
-          Delete={Delete}
-          event_id={e.event_id}
-          event_name={e.event_name}
-          image={e.img_url}
-          location={e.event_location}
-          description={e.event_description}
-          theme={e.theme}
-          vendor={e.vendors}
-        />
-      ))}
+      </form>
+      
+      <div className="card-container">
+        {user.map(e => (
+          <UserCard
+            Delete={Delete}
+            event_id={e.event_id}
+            event_name={e.event_name}
+            image={e.img_url}
+            location={e.event_location}
+            description={e.event_description}
+            theme={e.theme}
+            vendor={e.vendors}
+          />
+        ))}
+      </div>
+
     </div>
   );
 }

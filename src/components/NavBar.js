@@ -9,7 +9,7 @@ function NavBar () {
             <NavLink to="/signin">Sign In</NavLink>
             <NavLink to="/signup">Sign Up</NavLink>
             <NavLink to="/guest">Guest</NavLink>
-            <NavLink to="/createevent">Create Event</NavLink>
+            <NavLink to="/userportfolio">Portfolio</NavLink>
         </div>
     )
 }
