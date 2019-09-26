@@ -5,6 +5,7 @@ function NavBar () {
 
     return (
         <div className="navbar">
+            <NavLink exact to="/">Home</NavLink>
             <NavLink to="/signin">Sign In</NavLink>
             <NavLink to="/signup">Sign Up</NavLink>
             <NavLink to="/guest">Guest</NavLink>
