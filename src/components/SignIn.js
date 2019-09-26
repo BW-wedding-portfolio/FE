@@ -4,8 +4,8 @@ import { logIn } from "../actions";
 import { Link } from "react-router-dom";
 
 function SignIn(props) {
-    console.log(props, "sign in")
-  const [userInfo, setUserInfo] = useState({ username: "", password: "" });
+  console.log(props, "sign in");
+  const [userInfo, setUserInfo] = useState(""); // useState({ username: "", password: "" });
   const infoSignIn = {
     username: "",
     password: ""
@@ -15,11 +15,21 @@ function SignIn(props) {
     setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-      console.log(props)
+  const handleSubmit = e => {
+    console.log(":for class", props);
     e.preventDefault();
-    props.logIn(userInfo, props.history)
-    
+    props
+      .logIn(userInfo)
+
+      .then(res => {
+        if (res) {
+          console.log(res);
+          props.history.push("/userportfolio");
+        } else {
+          console.log("else fired");
+          alert("Log in failed:please check usernname and password");
+        }
+      });
   };
 
   return (
