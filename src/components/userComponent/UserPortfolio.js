@@ -13,7 +13,7 @@ export default function UserPortfolio () {
 
 
 
-const [user, setUser] = useState(data);
+const [user, setUser] = useState([]);
 const [userInfo, setUserInfo] = useState([]);
 
     const editUser = function () {
