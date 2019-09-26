@@ -21,6 +21,7 @@ function UserPortfolio() {
   };
 
 
+
   // const Edit = event_id => {
   //   const id = localStorage.getItem("id");
   //   axios
@@ -51,6 +52,10 @@ function UserPortfolio() {
   }, []);
 
   const [user, setUser] = useState([]);
+//   const [userInfo,setUserInfo] = useState([]);
+
+//   setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+
 
   const createNewEvent = () => {
     axiosWithAuth()
@@ -155,9 +160,7 @@ function UserPortfolio() {
         <Link to="/createevent">
           <button>Create Event</button>
         </Link>
-
       </form>
-      
       <div className="card-container">
         {user.map(e => (
           <UserCard
