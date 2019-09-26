@@ -17,7 +17,8 @@ function UserPortfolio() {
         console.log("delete response: ", res);
       })
 
-
+      .catch(err => console.log(err));
+  };
 
   useEffect(() => {
     axiosWithAuth()
@@ -51,7 +52,6 @@ function UserPortfolio() {
       });
   };
 
-
   const getAllEventsByCurrentPlanner = () => {
     console.log("getAllEventsByCurrentPlanner().");
     const id = localStorage.getItem("id");
@@ -81,7 +81,6 @@ function UserPortfolio() {
   // })
   // // // .catch(err => console.log(err.respone));
   // }
-
 
   //       .catch(err => console.log(err.respone));
 
@@ -128,31 +127,32 @@ function UserPortfolio() {
   //   },[] );
 
   return (
-    <div>
-      <button onClick={() => test()}>post</button>
+    <div className="guestPortfolio">
       <h2> User Portfolio</h2>
       <form>
-        <button>Log Out</button>
+        <button onClick={() => localStorage.clear}>Log Out</button>
         <button>Location</button>
         <button>Contact Info</button>
         <Link to="/createevent">
           <button>Create Event</button>
         </Link>
+
       </form>
-
-
-      {user.map(e => (
-        <UserCard
-          Delete={Delete}
-          event_id={e.event_id}
-          event_name={e.event_name}
-          image={e.img_url}
-          location={e.event_location}
-          description={e.event_description}
-          theme={e.theme}
-          vendor={e.vendors}
-        />
-      ))}
+      
+      <div className="card-container">
+        {user.map(e => (
+          <UserCard
+            Delete={Delete}
+            event_id={e.event_id}
+            event_name={e.event_name}
+            image={e.img_url}
+            location={e.event_location}
+            description={e.event_description}
+            theme={e.theme}
+            vendor={e.vendors}
+          />
+        ))}
+      </div>
     </div>
   );
 }
