@@ -4,6 +4,66 @@ import UserCard from './UserCard';
 import axiosWithAuth from '../../utils/axiosWithAuth'
 import CreateEvent from '../CreateEvent';
 
+const data  = [
+    {location: "Cleveland", 
+    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "50,000 BC",
+    image: "https://i.imgur.com/adkDDIz.jpg"}
+    ,
+    {location: "Cleveland", 
+    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "50,000 BC",
+    image: "https://i.imgur.com/gyeOxYB.jpg"}
+    ,
+    {location: "Cleveland", 
+    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "50,000 BC",
+    image: "https://i.imgur.com/cOKc5nA.jpg"}
+    ,
+    {location: "Cleveland", 
+    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "50,000 BC",
+    image: "https://i.imgur.com/4Ayekp0.jpg"}
+    ,
+    {location: "Cleveland", 
+    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "50,000 BC",
+    image: "https://i.imgur.com/ZnDvms6.jpg"}
+    ,
+    {location: "Cleveland", 
+    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "50,000 BC",
+    image: "https://i.imgur.com/bSEXnen.jpg"}
+    ,
+    {location: "Cleveland", 
+    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "50,000 BC",
+    image: "https://i.imgur.com/1trKjRL.jpg"}
+    ,
+    {location: "Boston", 
+    vendors: ["Tom Brady lookalike Chip N Dales", "Chowder Catering", "Matt Daemon"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "Tea Party",
+    image: "https://i.imgur.com/bVzAXus.jpg"}
+    ,
+    {location: "Boston", 
+    vendors: ["Tom Brady lookalike Chip N Dales", "Chowder Catering", "Matt Daemon"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "Tea Party",
+    image: "https://i.imgur.com/bVzAXus.jpg"}
+    ,
+    {location: "Boston", 
+    vendors: ["Tom Brady lookalike Chip N Dales", "Chowder Catering", "Matt Daemon"], 
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    theme: "Tea Party",
+    image: "https://i.imgur.com/LkJgrLb.jpg"}]
 
 export default function UserPortfolio () {
 
@@ -11,11 +71,9 @@ export default function UserPortfolio () {
        
       
 
-
-
-const [user, setUser] = useState(data);
+const [user, setUser] = useState();
 const [userInfo, setUserInfo] = useState([]);
-
+    
     const editUser = function () {
 
     };
@@ -50,17 +108,14 @@ const [userInfo, setUserInfo] = useState([]);
              <button>Contact Info</button>   
             <Link to='/createevent'><button>Create Event</button></Link>
             </form>
-
-            {user.map(e => (
+            <div className="card-container">
+            {data.map(e => (
                 <UserCard 
-                    image = {e.image}
-                    location = {e.location}
-                    description = {e.description}
-                    theme = {e.theme}
-                    vendor = {e.vendor}
+                    {...e}
                     />
             ))
             }
+            </div>
             
         </div>
     )
