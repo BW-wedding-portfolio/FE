@@ -17,7 +17,8 @@ function UserPortfolio() {
         console.log("delete response: ", res);
       })
 
-
+      .catch(err => console.log(err));
+  };
 
   useEffect(() => {
     axiosWithAuth()
@@ -32,6 +33,10 @@ function UserPortfolio() {
   }, []);
 
   const [user, setUser] = useState([]);
+//   const [userInfo,setUserInfo] = useState([]);
+
+//   setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+
 
   const createNewEvent = () => {
     axiosWithAuth()
@@ -50,7 +55,6 @@ function UserPortfolio() {
           .catch(err => console.log(err.respone));
       });
   };
-
 
   const getAllEventsByCurrentPlanner = () => {
     console.log("getAllEventsByCurrentPlanner().");
@@ -81,7 +85,6 @@ function UserPortfolio() {
   // })
   // // // .catch(err => console.log(err.respone));
   // }
-
 
   //       .catch(err => console.log(err.respone));
 
@@ -128,9 +131,8 @@ function UserPortfolio() {
   //   },[] );
 
   return (
-    <div>
-      <button onClick={() => test()}>post</button>
-      <h2> User Portfolio</h2>
+    <div className="guestPortfolio">
+      <h2>User Portfolio</h2>
       <form>
         <button>Log Out</button>
         <button>Location</button>
@@ -140,19 +142,20 @@ function UserPortfolio() {
         </Link>
       </form>
 
-
-      {user.map(e => (
-        <UserCard
-          Delete={Delete}
-          event_id={e.event_id}
-          event_name={e.event_name}
-          image={e.img_url}
-          location={e.event_location}
-          description={e.event_description}
-          theme={e.theme}
-          vendor={e.vendors}
-        />
-      ))}
+      <div className="card-container">
+        {user.map(e => (
+          <UserCard
+            Delete={Delete}
+            event_id={e.event_id}
+            event_name={e.event_name}
+            image={e.img_url}
+            location={e.event_location}
+            description={e.event_description}
+            theme={e.theme}
+            vendor={e.vendors}
+          />
+        ))}
+      </div>
     </div>
   );
 }
