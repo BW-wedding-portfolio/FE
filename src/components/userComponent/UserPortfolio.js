@@ -17,8 +17,7 @@ function UserPortfolio() {
         console.log("delete response: ", res);
       })
 
-      .catch(err => console.log(err));
-  };
+
 
   useEffect(() => {
     axiosWithAuth()
@@ -51,6 +50,7 @@ function UserPortfolio() {
           .catch(err => console.log(err.respone));
       });
   };
+
 
   const getAllEventsByCurrentPlanner = () => {
     console.log("getAllEventsByCurrentPlanner().");
@@ -139,6 +139,7 @@ function UserPortfolio() {
           <button>Create Event</button>
         </Link>
       </form>
+
 
       {user.map(e => (
         <UserCard
