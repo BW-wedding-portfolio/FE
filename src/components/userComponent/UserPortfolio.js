@@ -20,11 +20,30 @@ function UserPortfolio() {
       .catch(err => console.log(err));
   };
 
+
+
+  // const Edit = event_id => {
+  //   const id = localStorage.getItem("id");
+  //   axios
+  //     .delete(
+  //       `https://wedding-portfolio-bw.herokuapp.com/events/${id}/events/${event_id}`,
+  //     )
+  //     .then(res => {
+  //       getAllEventsByCurrentPlanner();
+  //       console.log("delete response: ", res);
+  //     })
+
+  //     .catch(err => console.log(err));
+  // };
+  const [info, setInfo] = useState("");
+
+
   useEffect(() => {
     axiosWithAuth()
       .get(`https://wedding-portfolio-bw.herokuapp.com/planners/`)
       .then(res => {
-        console.log(res);
+        console.log("thisa is what we need ", res);
+        setInfo(res.data);
         const id = res.data.id;
         localStorage.setItem("id", id);
         getAllEventsByCurrentPlanner();
@@ -129,19 +148,19 @@ function UserPortfolio() {
   //     getAllEventsByCurrentPlanner()
   //     console.log("useefeect ")
   //   },[] );
-
+  console.log("ima user", user);
   return (
+
     <div className="guestPortfolio">
-      <h2>User Portfolio</h2>
+      <h2> User Portfolio</h2>
       <form>
-        <button>Log Out</button>
+        <button onClick={() => localStorage.clear}>Log Out</button>
         <button>Location</button>
         <button>Contact Info</button>
         <Link to="/createevent">
           <button>Create Event</button>
         </Link>
       </form>
-
       <div className="card-container">
         {user.map(e => (
           <UserCard
@@ -156,6 +175,7 @@ function UserPortfolio() {
           />
         ))}
       </div>
+
     </div>
   );
 }

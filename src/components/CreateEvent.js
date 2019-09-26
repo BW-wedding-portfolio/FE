@@ -62,7 +62,7 @@ function CreateEvent(props) {
 
   return (
     <>
-      <form onSubmit={submitForm}>
+      <form onSubmit={submitForm} className="createEventForm">
         {console.log("Test: ", input.event_name)}
         <input
           type="text"
@@ -79,27 +79,31 @@ function CreateEvent(props) {
           value={input.img_url}
         />
 
-        <input
-          type="text"
-          name="event_location"
-          onChange={handleChanges2}
-          placeholder="City"
-          value={input.event_location}
-        />
+        <div className="location">
+          <input
+            type="text"
+            name="event_location"
+            onChange={handleChanges2}
+            placeholder="City"
+            value={input.event_location}
+          />
+        </div>
         <input
           type="text"
           name="theme"
           onChange={handleChanges2}
-          placeholder="City"
+          placeholder="Theme"
           value={input.theme}
         />
-        <textarea
-          cols="100"
-          name="event_description"
-          onChange={handleChanges2}
-          placeholder="Enter Event Description"
-          value={input.event_description}
-        />
+        <div className="description">
+          <textarea
+            cols="100"
+            name="event_description"
+            onChange={handleChanges2}
+            placeholder="Enter Event Description"
+            value={input.event_description}
+          />
+        </div>
 
         <input
           type="text"
