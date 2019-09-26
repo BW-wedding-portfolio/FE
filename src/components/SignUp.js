@@ -34,9 +34,9 @@ function SignUp(props) {
       username: "",
       password: "",
       location: "",
-      lastName: "",
+      last_name: "",
       email: "",
-      firstname: ""
+      first_name: ""
     });
 
     // Put a props reference here to set useState to input for parent component

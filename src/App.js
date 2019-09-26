@@ -5,7 +5,8 @@ import Welcome from './components/Welcome';
 import SignUp from "./components/SignUp"
 import CreateEvent from "./components/CreateEvent"
 import UserPortfolio from './components/userComponent/UserPortfolio';
-import GuestPortfolio from "./components/GuestPortfolio"
+import GuestPortfolio from "./components/GuestPortfolio";
+import NavBar from "./components/NavBar";
 import {  Route, Redirect } from "react-router-dom";
 
 const ProtectedRoute = ({component: Component, ...rest}) => {
@@ -23,6 +24,8 @@ function App(props) {
   return (
     <div className="App">
       
+      <NavBar />
+
       <Route exact path="/" component={Welcome} />
 
       <Route path="/signin" {...props} component={SignIn} />

@@ -1,25 +1,27 @@
 import React, { useState } from "react";
 
-export default function UserCard (props) {
+export default function UserCard(props) {
+  console.log("usercard", props);
 
-    return(
-        <div className="card">
-        <img src ={props.image} alt ={props.description} width= "100%"/>
-        
-        <h3>{props.location}</h3>
-        <p>Theme: {props.theme}</p>    
-        <p>{props.description}</p> 
-        <hr/>  
-        <h2>Vendors:</h2>
-        <ul>
-            {props.vendors.map(e =>(
-                <li>{e}</li>
-            ))}
-        </ul>       
-    
-        <button className='cardButton' onClick ={props.onClick}>Edit</button>
-        <button className='cardButton' onClick = {props.onClick}>Delete</button>
-        </div>
-    )
+  return (
+    <>
+      <div>
+        <img src={props.image} />
+      </div>
+      <div>
+        <h1>{props.event_name}</h1>
+        <p>Location: {props.location}</p>
+        <p>Description: {props.description}</p>
+        <p>Theme: {props.theme}</p>
+        <p>vendors: {props.vendors}</p>
+        {/* <ul>Vendors:
+                {props.vendor.map(e =>(
+                    <li>{e}</li>
+                ))}
+            </ul>        */}
+      </div>
+      <button onClick={props.onClick}>Edit</button>
+      <button onClick={() => props.Delete(props.event_id)}>Delete</button>
+    </>
+  );
 }
-

@@ -1,123 +1,163 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import UserCard from './UserCard';
-import axiosWithAuth from '../../utils/axiosWithAuth'
-import CreateEvent from '../CreateEvent';
-
-const data  = [
-    {location: "Cleveland", 
-    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "50,000 BC",
-    image: "https://i.imgur.com/adkDDIz.jpg"}
-    ,
-    {location: "Cleveland", 
-    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "50,000 BC",
-    image: "https://i.imgur.com/gyeOxYB.jpg"}
-    ,
-    {location: "Cleveland", 
-    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "50,000 BC",
-    image: "https://i.imgur.com/cOKc5nA.jpg"}
-    ,
-    {location: "Cleveland", 
-    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "50,000 BC",
-    image: "https://i.imgur.com/4Ayekp0.jpg"}
-    ,
-    {location: "Cleveland", 
-    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "50,000 BC",
-    image: "https://i.imgur.com/ZnDvms6.jpg"}
-    ,
-    {location: "Cleveland", 
-    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "50,000 BC",
-    image: "https://i.imgur.com/bSEXnen.jpg"}
-    ,
-    {location: "Cleveland", 
-    vendors: ["JimBob Photography", "BobJim Catering", "LeBob DeJim Pastry", "DJ Jim-to-the-Bob"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "50,000 BC",
-    image: "https://i.imgur.com/1trKjRL.jpg"}
-    ,
-    {location: "Boston", 
-    vendors: ["Tom Brady lookalike Chip N Dales", "Chowder Catering", "Matt Daemon"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "Tea Party",
-    image: "https://i.imgur.com/bVzAXus.jpg"}
-    ,
-    {location: "Boston", 
-    vendors: ["Tom Brady lookalike Chip N Dales", "Chowder Catering", "Matt Daemon"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "Tea Party",
-    image: "https://i.imgur.com/bVzAXus.jpg"}
-    ,
-    {location: "Boston", 
-    vendors: ["Tom Brady lookalike Chip N Dales", "Chowder Catering", "Matt Daemon"], 
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    theme: "Tea Party",
-    image: "https://i.imgur.com/LkJgrLb.jpg"}]
-
-export default function UserPortfolio () {
+import UserCard from "./UserCard";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import CreateEvent from "../CreateEvent";
+import { connect } from "react-redux";
+import axios from "axios";
+function UserPortfolio() {
+  const Delete = event_id => {
+    const id = localStorage.getItem("id");
+    axios
+      .delete(
+        `https://wedding-portfolio-bw.herokuapp.com/events/${id}/events/${event_id}`
+      )
+      .then(res => {
+        getAllEventsByCurrentPlanner();
+        console.log("delete response: ", res);
+      })
 
 
-       
-      
 
-const [user, setUser] = useState();
-const [userInfo, setUserInfo] = useState([]);
-    
-    const editUser = function () {
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`https://wedding-portfolio-bw.herokuapp.com/planners/`)
+      .then(res => {
+        console.log(res);
+        const id = res.data.id;
+        localStorage.setItem("id", id);
+        getAllEventsByCurrentPlanner();
+      })
+      .catch(err => console.log(err.respone));
+  }, []);
 
+  const [user, setUser] = useState([]);
+
+  const createNewEvent = () => {
+    axiosWithAuth()
+      .get(`https://wedding-portfolio-bw.herokuapp.com/planners/`)
+      .then(res => {
+        console.log(res);
+        const id = res.data.id;
+        axiosWithAuth()
+          .post(
+            `https://wedding-portfolio-bw.herokuapp.com/events/${id}/events`,
+            user
+          )
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => console.log(err.respone));
+      });
+  };
+
+
+  const getAllEventsByCurrentPlanner = () => {
+    console.log("getAllEventsByCurrentPlanner().");
+    const id = localStorage.getItem("id");
+    axiosWithAuth()
+      .get(`https://wedding-portfolio-bw.herokuapp.com/events/${id}/events`)
+      .then(res => {
+        console.log("get all", res);
+        setUser(res.data);
+      })
+      .catch(err => console.log("events by id: ", err.response));
+  };
+
+  // React.useEffect(() => {
+  //use this to get current user id
+  //     axiosWithAuth()
+  //       .get(`https://wedding-portfolio-bw.herokuapp.com/planners/`)
+  //       .then(res => {
+  //           const id = res.data.id;
+  // //           // console.log(id);
+  // //         //   console.log(res.data.id)
+  //         axiosWithAuth()
+  //       .post(`https://wedding-portfolio-bw.herokuapp.com/events/${id}/events`, newEvent)
+  //       .then(res => {
+  //     console.log(res)
+  // //     console.log('here');
+
+  // })
+  // // // .catch(err => console.log(err.respone));
+  // }
+
+
+  //       .catch(err => console.log(err.respone));
+
+  //   axiosWithAuth()
+  //   .get(`https://wedding-portfolio-bw.herokuapp.com/events/50/events`)
+  //   .then(res => {
+  // console.log(res)
+  // console.log('here');
+  // setUser(res.data)
+  // })
+  // .catch(err => console.log(err.respone));
+  // setUser(res.data)
+
+  //use this to get ALL events
+  // axiosWithAuth()
+  //   .get(`https://wedding-portfolio-bw.herokuapp.com/events/`)
+  //   .then(res => {
+  //       console.log(res)
+  //     // setUser(res.data)
+  //   })
+  //   .catch(err => console.log(err.respone));
+  //   }, []);
+
+  const test = () => {
+    const newEvent = {
+      event_name: "New Event",
+      event_description: "Event...",
+      event_location: "Paris",
+      theme: "Who knows"
     };
+  };
+  //     axiosWithAuth()
+  //       .post(`https://wedding-portfolio-bw.herokuapp.com/events/50/events`, newEvent)
+  //       .then(res => {
+  //     console.log(res)
+  //     console.log('here');
 
-    const deleteUser = function () {
+  // })
+  // .catch(err => console.log(err.respone));
+  // }
+  // useEffect(() => {
+  //     getAllEventsByCurrentPlanner()
+  //     console.log("useefeect ")
+  //   },[] );
 
-    }
+  return (
+    <div>
+      <button onClick={() => test()}>post</button>
+      <h2> User Portfolio</h2>
+      <form>
+        <button>Log Out</button>
+        <button>Location</button>
+        <button>Contact Info</button>
+        <Link to="/createevent">
+          <button>Create Event</button>
+        </Link>
+      </form>
 
-    // useEffect(() => {
-    //     axiosWithAuth()
-    //       .get(`https://wedding-portfolio-bw.herokuapp.com/${}/events`)
-    //       .then(res => {
-    //         setUser(res.data)
-    //       })
-    //       .catch(err => console.log(err.respone));
-    //   }, []);
-    
-    return(
-        <div>
-        <div>
-            
-            <h2>{userInfo.name}'s Portfolio</h2> 
-            <h3>Location {userInfo.city}</h3>
-            <h3>Contact Info</h3> 
-            <h3>Phone Number {userInfo.phonenumber}</h3>
-            <h3>Email {userInfo.email}</h3>
-        </div>
-            <h2>User Portfolio</h2>
-            <form>
-             <button>Log Out</button>          
-             <button>Location</button>
-             <button>Contact Info</button>   
-            <Link to='/createevent'><button>Create Event</button></Link>
-            </form>
-            <div className="card-container">
-            {data.map(e => (
-                <UserCard 
-                    {...e}
-                    />
-            ))
-            }
-            </div>
-            
-        </div>
-    )
+
+      {user.map(e => (
+        <UserCard
+          Delete={Delete}
+          event_id={e.event_id}
+          event_name={e.event_name}
+          image={e.img_url}
+          location={e.event_location}
+          description={e.event_description}
+          theme={e.theme}
+          vendor={e.vendors}
+        />
+      ))}
+    </div>
+  );
 }
 
+export default connect(
+  null,
+  {}
+)(UserPortfolio);
