@@ -81,7 +81,7 @@ function EditForm(props) {
         type="text"
         name="theme"
         onChange={handleChanges2}
-        placeholder="theme"
+        placeholder="Theme"
         value={input.theme}
       />
       <TextArea

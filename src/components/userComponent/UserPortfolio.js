@@ -155,7 +155,7 @@ function UserPortfolio() {
   console.log("ima user", user);
   return (
     <Portfolio>
-      <PortfolioHeader><Header2>{info.username}'s Portfolio</Header2></PortfolioHeader>
+      <PortfolioHeader><Header2>{info.first_name}'s Portfolio</Header2></PortfolioHeader>
       <form>
         <Button onClick={() => localStorage.clear()}>Log Out</Button>
         <UserInfoContainer>
