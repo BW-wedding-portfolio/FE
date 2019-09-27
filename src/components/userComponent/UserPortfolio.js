@@ -147,13 +147,14 @@ function UserPortfolio() {
   console.log("ima user", user);
   return (
     <div className="guestPortfolio">
-      <h2> User Portfolio</h2>
+      <h2>{info.username}'s Portfolio</h2>
       <form>
         <h3>{(info.first_name, info.last_name)}</h3>
         <h3>{info.location}</h3>
         <h3>{info.email}</h3>
 
         <button onClick={() => localStorage.clear()}>Log Out</button>
+
         <Link to="/createevent">
           <button>Create Event</button>
         </Link>

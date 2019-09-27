@@ -13,8 +13,8 @@ export default function UserCard(props) {
       <div>
         <h1>{props.event_name}</h1>
 
-        <p>Location: {props.location}</p>
-        <p>Description: {props.description}</p>
+        <p>{props.location}</p>
+        <p>{props.description}</p>
         <hr/>
         <p>Theme: {props.theme}</p>
         <p>vendors: {props.vendor}</p>
