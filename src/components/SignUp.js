@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { registerUser } from "../actions";
 import { Link } from "react-router-dom";
 
+import { Button, Input } from "../style"
+
 function SignUp(props) {
   const [input, setInput] = useState("");
   console.log({ input }, "input results in a cleared state");
@@ -56,14 +58,14 @@ function SignUp(props) {
       {props.isLogging && <div>Loading</div>}
 
       <form onSubmit={submitForm}>
-        <input
+        <Input
           type="text"
           name="username"
           onChange={handleChanges}
           placeholder="Enter Username"
           value={input.username}
         />
-        <input
+        <Input
           type="password"
           name="password"
           onChange={handleChanges}
@@ -71,7 +73,7 @@ function SignUp(props) {
           value={input.password}
         />
         <div className="location">
-          <input
+          <Input
             type="text"
             name="location"
             onChange={handleChanges}
@@ -80,21 +82,21 @@ function SignUp(props) {
           />
         </div>
         <div className="contact">
-          <input
+          <Input
             type="text"
             name="first_name"
             onChange={handleChanges}
             placeholder="First Name"
             value={input.first_name}
           />
-          <input
+          <Input
             type="text"
             name="last_name"
             onChange={handleChanges}
             placeholder="Last Name"
             value={input.last_name}
           />
-          <input
+          <Input
             type="email"
             name="email"
             onChange={handleChanges}
@@ -102,10 +104,10 @@ function SignUp(props) {
             value={input.email}
           />
         </div>
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
       <Link to="/">
-        <button>Back</button>
+        <Button>Back</Button>
       </Link>
 
       {props.error && <div>{props.error.message}</div>}

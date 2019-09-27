@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+import { Button, Input, TextArea } from "../style";
+
 function CreateEvent(props) {
   const [input, setInput] = useState({
     event_description: "",
@@ -62,16 +64,16 @@ function CreateEvent(props) {
 
   return (
     <>
-      <form onSubmit={submitForm} className="createEventForm">
+      <form onSubmit={submitForm}>
         {console.log("Test: ", input.event_name)}
-        <input
+        <Input
           type="text"
           name="event_name"
           onChange={handleChanges2}
           placeholder="Enter Event Name"
           value={input.event_name}
         />
-        <input
+        <Input
           type="text"
           name="img_url"
           onChange={handleChanges2}
@@ -79,8 +81,8 @@ function CreateEvent(props) {
           value={input.img_url}
         />
 
-        <div className="location">
-          <input
+        <div>
+          <Input
             type="text"
             name="event_location"
             onChange={handleChanges2}
@@ -88,15 +90,15 @@ function CreateEvent(props) {
             value={input.event_location}
           />
         </div>
-        <input
+        <Input
           type="text"
           name="theme"
           onChange={handleChanges2}
           placeholder="Theme"
           value={input.theme}
         />
-        <div className="description">
-          <textarea
+        <div>
+          <TextArea
             cols="100"
             name="event_description"
             onChange={handleChanges2}
@@ -105,7 +107,7 @@ function CreateEvent(props) {
           />
         </div>
 
-        <input
+        <Input
           type="text"
           name="vendors"
           onChange={handleChanges2}
@@ -113,7 +115,7 @@ function CreateEvent(props) {
           value={input.vendors}
         />
 
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
     </>
   );

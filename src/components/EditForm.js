@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+import { Button, Input } from "../style";
+
 function EditForm(props) {
   console.log(props);
   const [input, setInput] = useState({
@@ -54,29 +56,28 @@ function EditForm(props) {
   return (
     <form onSubmit={submitForm}>
       {console.log("Test: ", input.event_name)}
-      <input
+      <Input
         type="text"
         name="event_name"
         onChange={handleChanges2}
         placeholder="Enter Event Name"
         value={input.event_name}
       />
-      <input
+      <Input
         type="text"
         name="img_url"
         onChange={handleChanges2}
         placeholder="Enter Photo URL"
         value={input.img_url}
       />
-
-      <input
+      <Input
         type="text"
         name="event_location"
         onChange={handleChanges2}
         placeholder="City"
         value={input.event_location}
       />
-      <input
+      <Input
         type="text"
         name="theme"
         onChange={handleChanges2}
@@ -91,7 +92,7 @@ function EditForm(props) {
         value={input.event_description}
       />
 
-      <input
+      <Input
         type="text"
         name="vendors"
         onChange={handleChanges2}
@@ -99,7 +100,7 @@ function EditForm(props) {
         value={input.vendors}
       />
 
-      <button>Submit</button>
+      <Button>Submit</Button>
     </form>
   );
 }

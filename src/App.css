@@ -126,171 +126,21 @@ body{
   
   background-image: linear-gradient(to bottom right, #F6F6F6, #D4D7DD);
   min-height: 100%;
-   
 }
 
-h1, h2, h3 ,h4 , h5, h6, a {
+a {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   color: #6a0000;
-}
-p, li{
-  font-family: 'Lato', sans-serif;
+  text-decoration: none;
 }
 
-.App {
-  text-align: center;
-  
-  
+a.active {
+  text-decoration: underline;
 }
+
 html {
   background-image: linear-gradient(to bottom right, #F6F6F6, #D4D7DD);
   height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  /* min-height: 100vh; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
-a{
-  text-decoration: none;
-}
-.welcomeForm{
-  padding-top: 10%;
-  height: 100%;
-}
-.guestPortfolio{
-  height: 100%;
-  
-}
-/* .card-container{
-  height: 100%;
-} */
-
-
-.welcomeButton:nth-child(1){
- 
-  margin-right:3%;
-}
-.welcomeButton:nth-child(3){
-  margin-left:3%;
-
-
-}
-.welcomeButton{
-  border-radius: 10px;
-  border: 4px solid #d4d7dd;
-  padding: 10px 20px;
-  background-color: #EAE9E9;
-  font-size: 1.4rem;
-}
-.welcomeButton:hover{
-  background-color: #d4d7dd;
-  transition: .7s;
-  
-
-}
-
-.cardButton{
-  border-radius: 10px;
-  border: 4px solid #d4d7dd;
-  padding: 10px 20px;
-  background-color: #EAE9E9;
-  font-size: 1.2rem;
-  width: 40%;
-  margin: 5%;
-}
-
-.cardButton:hover{
-  color: #EAE9E9;
-  background-color: #6a0000;
-  transition: .7s;
-  
-  
-
-}
-.logoWelcome{
-  margin-top: 6%;
-  /* width: 50%; */
-}
-
-.card {
-  background: rgb(212,215,221);
-  background: radial-gradient(circle, rgba(212,215,221,1) 0%, rgba(234,233,233,1) 25%, rgba(246,246,246,1) 64%);
-  color: #420000;
-  box-shadow: 10px 10px 8px #888888;
-  border-radius: 5%;
-  width: 20%;
-  margin: 1%;
-  padding: 1%;
-}
-
-.card-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-button{
-  border-radius: 10px;
-  border: 4px solid #d4d7dd;
-  padding: 10px 20px;
-  background-color: #EAE9E9;
-  font-size: 1.2rem;
-  margin: 5%;
-}
-
-button:hover{
-  color: #EAE9E9;
-  background-color: #6a0000;
-  transition: .7s;
-}
-
-input, textarea {
-  padding: 12px 20px;
-  margin: 20px;
-  font-size: 1.4rem;
-  box-sizing: border-box;
-  background-color: #EAE9E9;
-}
-
-.vendorBox {
-  background: rgb(212,215,221);
-  background: radial-gradient(circle, rgba(212,215,221,1) 0%, rgba(234,233,233,1) 25%, rgba(246,246,246,1) 64%);
-  font-size: 1.6rem;
-  border-radius: 2%;
-}
-
-.createEventForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.navbar {
-  font-size: 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.navbar a {
-  padding: 15px;
-}
-
-.navbar a.active {
-  text-decoration: underline;
-}

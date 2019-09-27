@@ -10,6 +10,8 @@ import GuestPortfolio from "./components/GuestPortfolio";
 import NavBar from "./components/NavBar";
 import { Route, Redirect } from "react-router-dom";
 
+import { AppStyle } from "./style";
+
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
@@ -27,7 +29,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
 function App(props) {
   return (
-    <div className="App">
+    <AppStyle>
       <NavBar />
 
       <Route exact path="/" component={Welcome} />
@@ -51,7 +53,7 @@ function App(props) {
       {/* <SignUp /> */}
       {/* <CreateEvent /> */}
       {/* <GuestPortfolio /> */}
-    </div>
+    </AppStyle>
   );
 }
 
