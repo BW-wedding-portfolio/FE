@@ -152,11 +152,14 @@ function UserPortfolio() {
   return (
 
     <div className="guestPortfolio">
-      <h2> User Portfolio</h2>
+      <h2>{info.username}'s Portfolio</h2>
       <form>
         <button onClick={() => localStorage.clear}>Log Out</button>
-        <button>Location</button>
-        <button>Contact Info</button>
+        <h2>{info.first_name} {info.last_name}</h2>
+        <h2>{info.location}</h2>
+        <h2>{info.email}</h2>
+
+
         <Link to="/createevent">
           <button>Create Event</button>
         </Link>
