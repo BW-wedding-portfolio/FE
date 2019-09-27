@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-import { Button, Input } from "../style";
+import { Button, Input, TextArea } from "../style";
 
 function EditForm(props) {
   console.log(props);
@@ -84,7 +84,7 @@ function EditForm(props) {
         placeholder="theme"
         value={input.theme}
       />
-      <textarea
+      <TextArea
         cols="100"
         name="event_description"
         onChange={handleChanges2}

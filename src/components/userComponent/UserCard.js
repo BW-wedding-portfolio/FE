@@ -14,10 +14,10 @@ export default function UserCard(props) {
       <div>
         <Header2>{props.event_name}</Header2>
         <Paragraph>Location: {props.location}</Paragraph>
-        <Paragraph>Description: {props.description}</Paragraph>
+        <Paragraph>{props.description}</Paragraph>
         <hr/>
-        <Paragraph>Theme: {props.theme}</Paragraph>
-        <Paragraph>vendors: {props.vendor}</Paragraph>
+        <Header2>Theme: {props.theme}</Header2>
+        <Paragraph>Vendors: {props.vendor}</Paragraph>
         {/* <ul>Vendors:
                 {props.vendor.map(e =>(
                     <li>{e}</li>
