@@ -25,7 +25,6 @@ function UserPortfolio() {
   };
 
 
-
   // const Edit = event_id => {
   //   const id = localStorage.getItem("id");
   //   axios
@@ -41,7 +40,6 @@ function UserPortfolio() {
   // };
   const [info, setInfo] = useState("");
 
-
   useEffect(() => {
     axiosWithAuth()
       .get(`https://wedding-portfolio-bw.herokuapp.com/planners/`)
@@ -56,9 +54,11 @@ function UserPortfolio() {
   }, []);
 
   const [user, setUser] = useState([]);
+
 //   const [userInfo,setUserInfo] = useState([]);
 
 //   setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+
 
 
   const createNewEvent = () => {
@@ -154,7 +154,6 @@ function UserPortfolio() {
   //   },[] );
   console.log("ima user", user);
   return (
-
     <Portfolio>
       <PortfolioHeader><Header2>{info.username}'s Portfolio</Header2></PortfolioHeader>
       <form>
@@ -167,11 +166,13 @@ function UserPortfolio() {
           </UserInfo>
         </UserInfoContainer> 
 
+
         <Link to="/createevent">
           <Button>Create Event</Button>
         </Link>
       </form>
       <CardContainer>
+
         {user.map(e => (
           <UserCard
             Delete={Delete}
@@ -186,6 +187,7 @@ function UserPortfolio() {
         ))}
       </CardContainer>
     </Portfolio>
+
   );
 }
 

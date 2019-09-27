@@ -12,6 +12,7 @@ function CreateEvent(props) {
     theme: "",
     vendors: ""
   });
+
   // console.log({input}, "input results in a cleared state")
 
   const handleChanges2 = e => {
@@ -81,6 +82,7 @@ function CreateEvent(props) {
           value={input.img_url}
         />
 
+
         <div>
           <Input
             type="text"
@@ -91,10 +93,11 @@ function CreateEvent(props) {
           />
         </div>
         <Input
+
           type="text"
           name="theme"
           onChange={handleChanges2}
-          placeholder="Theme"
+          placeholder="City"
           value={input.theme}
         />
         <div>
@@ -122,4 +125,3 @@ function CreateEvent(props) {
 }
 
 export default CreateEvent;
-

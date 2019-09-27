@@ -15,6 +15,7 @@ export default function UserCard(props) {
         <Header2>{props.event_name}</Header2>
         <Paragraph>Location: {props.location}</Paragraph>
         <Paragraph>{props.description}</Paragraph>
+
         <hr/>
         <Header2>Theme: {props.theme}</Header2>
         <Paragraph>Vendors: {props.vendor}</Paragraph>
