@@ -10,6 +10,7 @@ function CreateEvent(props) {
     theme: "",
     vendors: ""
   });
+
   // console.log({input}, "input results in a cleared state")
 
   const handleChanges2 = e => {
@@ -62,7 +63,7 @@ function CreateEvent(props) {
 
   return (
     <>
-      <form onSubmit={submitForm} className="createEventForm">
+      <form onSubmit={submitForm}>
         {console.log("Test: ", input.event_name)}
         <input
           type="text"
@@ -79,31 +80,27 @@ function CreateEvent(props) {
           value={input.img_url}
         />
 
-        <div className="location">
-          <input
-            type="text"
-            name="event_location"
-            onChange={handleChanges2}
-            placeholder="City"
-            value={input.event_location}
-          />
-        </div>
+        <input
+          type="text"
+          name="event_location"
+          onChange={handleChanges2}
+          placeholder="City"
+          value={input.event_location}
+        />
         <input
           type="text"
           name="theme"
           onChange={handleChanges2}
-          placeholder="Theme"
+          placeholder="City"
           value={input.theme}
         />
-        <div className="description">
-          <textarea
-            cols="100"
-            name="event_description"
-            onChange={handleChanges2}
-            placeholder="Enter Event Description"
-            value={input.event_description}
-          />
-        </div>
+        <textarea
+          cols="100"
+          name="event_description"
+          onChange={handleChanges2}
+          placeholder="Enter Event Description"
+          value={input.event_description}
+        />
 
         <input
           type="text"
@@ -120,4 +117,3 @@ function CreateEvent(props) {
 }
 
 export default CreateEvent;
-
