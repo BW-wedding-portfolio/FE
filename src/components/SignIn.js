@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { logIn } from "../actions";
 import { Link } from "react-router-dom";
 
+import { Button, Input } from "../style"
+
 function SignIn(props) {
   console.log(props, "sign in");
   const [userInfo, setUserInfo] = useState(""); // useState({ username: "", password: "" });
@@ -41,25 +43,25 @@ function SignIn(props) {
       {/* {props.error = ""} */}
 
       <form onSubmit={handleSubmit}>
-        <input
+        <Input
           type="text"
           name="username"
           placeholder="Enter username"
           onChange={handleChange}
           value={userInfo.username}
         />
-        <input
+        <Input
           type="password"
           name="password"
           placeholder="password"
           onChange={handleChange}
           value={userInfo.password}
         />
-        <button type="submit">Sign in</button>
+        <Button type="submit">Sign in</Button>
       </form>
 
       <Link to="/">
-        <button>Back</button>
+        <Button>Back</Button>
       </Link>
       {props.error && <div>{props.error.message}</div>}
     </>

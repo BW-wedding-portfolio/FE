@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import UserCard from "./UserCard";
@@ -5,6 +6,9 @@ import axiosWithAuth from "../../utils/axiosWithAuth";
 import CreateEvent from "../CreateEvent";
 import { connect } from "react-redux";
 import axios from "axios";
+
+import { Header2, Portfolio, Button, CardContainer, PortfolioHeader, UserInfo, UserInfoContainer } from "../../style";
+
 function UserPortfolio() {
   const Delete = event_id => {
     const id = localStorage.getItem("id");
@@ -19,6 +23,7 @@ function UserPortfolio() {
 
       .catch(err => console.log(err));
   };
+
 
   // const Edit = event_id => {
   //   const id = localStorage.getItem("id");
@@ -49,9 +54,12 @@ function UserPortfolio() {
   }, []);
 
   const [user, setUser] = useState([]);
-  //   const [userInfo,setUserInfo] = useState([]);
 
-  //   setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+//   const [userInfo,setUserInfo] = useState([]);
+
+//   setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+
+
 
   const createNewEvent = () => {
     axiosWithAuth()
@@ -146,20 +154,25 @@ function UserPortfolio() {
   //   },[] );
   console.log("ima user", user);
   return (
-    <div className="guestPortfolio">
-      <h2>{info.username}'s Portfolio</h2>
+    <Portfolio>
+      <PortfolioHeader><Header2>{info.username}'s Portfolio</Header2></PortfolioHeader>
       <form>
-        <h3>{(info.first_name, info.last_name)}</h3>
-        <h3>{info.location}</h3>
-        <h3>{info.email}</h3>
+        <Button onClick={() => localStorage.clear()}>Log Out</Button>
+        <UserInfoContainer>
+          <UserInfo>
+            <Header2>{info.first_name} {info.last_name}</Header2>
+            <Header2>{info.location}</Header2>
+            <Header2>{info.email}</Header2>
+          </UserInfo>
+        </UserInfoContainer> 
 
-        <button onClick={() => localStorage.clear()}>Log Out</button>
 
         <Link to="/createevent">
-          <button>Create Event</button>
+          <Button>Create Event</Button>
         </Link>
       </form>
-      <div className="card-container">
+      <CardContainer>
+
         {user.map(e => (
           <UserCard
             Delete={Delete}
@@ -172,8 +185,9 @@ function UserPortfolio() {
             vendor={e.vendors}
           />
         ))}
-      </div>
-    </div>
+      </CardContainer>
+    </Portfolio>
+
   );
 }
 

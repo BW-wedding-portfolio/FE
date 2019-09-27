@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { pipelineTopicExpression } from "@babel/types";
+
+import { Header2, Paragraph, Button, Card } from "../../style";
 
 export default function UserCard(props) {
   console.log("usercard", props);
 
   return (
-    <div className="card">
+    <Card>
       <div>
         <img src={props.image} width="100%"/>
       </div>
       <div>
-        <h1>{props.event_name}</h1>
+        <Header2>{props.event_name}</Header2>
+        <Paragraph>Location: {props.location}</Paragraph>
+        <Paragraph>{props.description}</Paragraph>
 
-        <p>{props.location}</p>
-        <p>{props.description}</p>
         <hr/>
-        <p>Theme: {props.theme}</p>
-        <p>vendors: {props.vendor}</p>
+        <Header2>Theme: {props.theme}</Header2>
+        <Paragraph>Vendors: {props.vendor}</Paragraph>
         {/* <ul>Vendors:
                 {props.vendor.map(e =>(
                     <li>{e}</li>
@@ -39,10 +40,10 @@ export default function UserCard(props) {
           }
         }}
       >
-        <button>Edit</button>
+        <Button>Edit</Button>
       </Link>
 
-      <button onClick={() => props.Delete(props.event_id)}>Delete</button>
-    </div>
+      <Button onClick={() => props.Delete(props.event_id)}>Delete</Button>
+    </Card>
   );
 }

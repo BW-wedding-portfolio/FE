@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
+import { Button, Input, TextArea } from "../style";
+
 function CreateEvent(props) {
   const [input, setInput] = useState({
     event_description: "",
@@ -65,14 +67,14 @@ function CreateEvent(props) {
     <>
       <form onSubmit={submitForm}>
         {console.log("Test: ", input.event_name)}
-        <input
+        <Input
           type="text"
           name="event_name"
           onChange={handleChanges2}
           placeholder="Enter Event Name"
           value={input.event_name}
         />
-        <input
+        <Input
           type="text"
           name="img_url"
           onChange={handleChanges2}
@@ -80,29 +82,35 @@ function CreateEvent(props) {
           value={input.img_url}
         />
 
-        <input
-          type="text"
-          name="event_location"
-          onChange={handleChanges2}
-          placeholder="City"
-          value={input.event_location}
-        />
-        <input
+
+        <div>
+          <Input
+            type="text"
+            name="event_location"
+            onChange={handleChanges2}
+            placeholder="City"
+            value={input.event_location}
+          />
+        </div>
+        <Input
+
           type="text"
           name="theme"
           onChange={handleChanges2}
           placeholder="City"
           value={input.theme}
         />
-        <textarea
-          cols="100"
-          name="event_description"
-          onChange={handleChanges2}
-          placeholder="Enter Event Description"
-          value={input.event_description}
-        />
+        <div>
+          <TextArea
+            cols="100"
+            name="event_description"
+            onChange={handleChanges2}
+            placeholder="Enter Event Description"
+            value={input.event_description}
+          />
+        </div>
 
-        <input
+        <Input
           type="text"
           name="vendors"
           onChange={handleChanges2}
@@ -110,7 +118,7 @@ function CreateEvent(props) {
           value={input.vendors}
         />
 
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
     </>
   );
