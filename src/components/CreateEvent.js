@@ -97,7 +97,7 @@ function CreateEvent(props) {
           type="text"
           name="theme"
           onChange={handleChanges2}
-          placeholder="City"
+          placeholder="Theme"
           value={input.theme}
         />
         <div>
